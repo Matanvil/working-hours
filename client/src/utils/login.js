@@ -4,8 +4,6 @@ const loginUser = async (user) => {
     headers: { "Content-Type": "application/json", 'Accept': "application/json" },
     body: JSON.stringify(user),
   });
-//   const data = await response.json();
-//   return data;
 };
 
 export default loginUser;

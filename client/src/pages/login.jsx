@@ -16,11 +16,10 @@ const Login = () => {
 
   const onSubmitHandler = async (event) => {
     event.preventDefault();
-    const user = await loginUser({
+    loginUser({
       username: username,
       password: password
     });
-    console.log(user);
   };
 
   return (
