@@ -1,23 +1,17 @@
-
+import storeData from '../utils/storeData';
+import InputForm from '../components/InputForm'
 
 const InputPage = () => {
-  const time = new Date();
-  const date = time.toISOString().substr(0, 10);
-  console.log(date);
+
+  const inputData = async (data) => {
+    await storeData(data)
+  }
+
   return (
     <div>
-      <form>
-        <div className="form-date">
-          <label> Start Date: 
-            <input type="date" defaultValue={date} />
-          </label>
-          <label> End Date: 
-            <input type="date" defaultValue={date} />
-          </label>
-        </div>
-      </form>
+      <InputForm onAddData={inputData} />
     </div>
-  );
+  )
 };
 
 export default InputPage;
