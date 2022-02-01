@@ -2,7 +2,7 @@ version: "3.8"
 services:
   mongodb:
     image: mongo
-    container_name: aaa-mongo
+    container_name: work-hours-mongo
     environment:
       - PUID=1000
       - PGID=1000
