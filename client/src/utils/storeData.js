@@ -4,7 +4,8 @@ const storeData = async (inputData) => {
     headers: { "Content-Type": "application/json" },
     body: JSON.stringify(inputData)
   });
-//   const data = await response.json()
+  const data = await response.json()
+  return data
 };
 
 export default storeData;

@@ -1,0 +1,23 @@
+.list-container {
+  width: 90%;
+  margin: 50px auto;
+}
+
+.list-item {
+  list-style: none;
+  margin: 10px;
+  border: 2px solid grey;
+  padding: 10px;
+  box-shadow: 2px 2px;
+  background-color: rgb(235, 235, 235);
+  display: flex;
+  justify-content: space-evenly;
+  border-radius: 5px;
+}
+
+.item-date {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}

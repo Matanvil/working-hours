@@ -9,6 +9,7 @@ const InputForm = (props) => {
   const [endDate, setEndDate] = useState(date);
   const [startTime, setStartTime] = useState();
   const [endTime, setEndTime] = useState();
+  const [comments, setComments] = useState("");
 
   const startDateChangeHandler = (event) => {
     setStartDate(event.target.value);
@@ -23,14 +24,20 @@ const InputForm = (props) => {
     setEndTime(event.target.value);
   };
 
+  const commentsChangeHandler = (event) => {
+    setComments(event.target.value);
+  };
+
   const inputFormSubmitHandler = (event) => {
     event.preventDefault();
     props.onAddData({
-        startDate,
-        endDate,
-        startTime,
-        endTime
-    })
+      comments,
+      startDate,
+      startTime,
+      endDate,
+      endTime,
+    });
+    console.log(startTime);
   };
 
   return (
@@ -69,6 +76,10 @@ const InputForm = (props) => {
             onChange={endTimeChangeHandler}
             required
           />
+        </div>
+        <div className="form-comments">
+          <label htmlFor="comment">Comments:</label>
+          <input type="text" id="comment" onChange={commentsChangeHandler} />
         </div>
         <div className="form-actions">
           <button type="submit">Submit</button>
