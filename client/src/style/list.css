@@ -15,9 +15,13 @@
   border-radius: 5px;
 }
 
-.item-date {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
+.item-date,
+.item-time,
+.item-comments {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  flex-direction: column;
+  flex :1
 }

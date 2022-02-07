@@ -1,4 +1,5 @@
 import { useState } from "react";
+import parseDateTime from "../utils/parseDateTime";
 import "../style/InputPage.css";
 
 const InputForm = (props) => {
@@ -30,14 +31,13 @@ const InputForm = (props) => {
 
   const inputFormSubmitHandler = (event) => {
     event.preventDefault();
-    props.onAddData({
-      comments,
+    const dateTime = parseDateTime({
       startDate,
       startTime,
       endDate,
       endTime,
     });
-    console.log(startTime);
+    props.onAddData({ ...dateTime, comments });
   };
 
   return (
