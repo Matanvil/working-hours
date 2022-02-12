@@ -1,24 +1,31 @@
 const parseDateTime = (dateTime) => {
   const split = {
-    sDate: dateTime.startDate.split("-"),
+    // TODO: refactor split to getMonth etc` // - Done 12/02/22
+    sYear: new Date(dateTime.startDate).getFullYear(),
+    sMonth: new Date(dateTime.startDate).getMonth(),
+    sDay: new Date(dateTime.startDate).getDate(),
     sTime: dateTime.startTime.split(":"),
-    eDate: dateTime.endDate.split("-"),
+    eYear: new Date(dateTime.endDate).getFullYear(),
+    eMonth: new Date(dateTime.endDate).getMonth(),
+    eDay: new Date(dateTime.endDate).getDate(),
     eTime: dateTime.endTime.split(":"),
   };
+
   const start = new Date(
-    split.sDate[0],
-    split.sDate[1],
-    split.sDate[2],
+    split.sYear,
+    split.sMonth,
+    split.sDay,
     split.sTime[0],
     split.sTime[1]
-  ).toString()
+  )
   const end = new Date(
-    split.eDate[0],
-    split.eDate[1],
-    split.eDate[2],
+    split.eYear,
+    split.eMonth,
+    split.eDay,
     split.eTime[0],
     split.eTime[1]
-  ).toString()
+  )
+  console.log(start)
   return { start, end };
 };
 
