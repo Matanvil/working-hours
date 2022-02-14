@@ -5,15 +5,15 @@ import InputList from "../components/InputList";
 import { getLatestDocs } from "../utils/filters";
 
 const InputPage = () => {
-  let listOfInputs;
   const [filterClicked, setFilterClicked] = useState(false);
+  const [currentList, setCurrentList] = useState()
+
   const inputData = async (data) => {
     const response = await storeData(data);
     const result = await response;
-    listOfInputs = result
-    console.log(result);
+    setCurrentList(result);
   };
-
+  
   const getFilteredDocs = async () => {
     const docs = await getLatestDocs();
     console.log(docs);
@@ -23,7 +23,7 @@ const InputPage = () => {
     <div>
       <InputForm onAddData={inputData} />
       <button onClick={getFilteredDocs}>Filter</button>
-      <InputList list={listOfInputs}/>
+      <InputList list={currentList}/>
     </div>
   );
 };

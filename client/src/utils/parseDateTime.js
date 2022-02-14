@@ -25,7 +25,6 @@ const parseDateTime = (dateTime) => {
     split.eTime[0],
     split.eTime[1]
   )
-  console.log(start)
   return { start, end };
 };
 

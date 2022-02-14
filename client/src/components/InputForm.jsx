@@ -38,6 +38,8 @@ const InputForm = (props) => {
       endTime,
     });
     props.onAddData({ ...dateTime, comments });
+    setStartTime("")
+    setEndTime("")
   };
 
   return (
@@ -67,6 +69,7 @@ const InputForm = (props) => {
             name="startHour"
             type="time"
             onChange={startTimeChangeHandler}
+            defaultValue={startTime}
             required
           />
           <label htmlFor="endHour">End Hour:</label>
@@ -74,6 +77,7 @@ const InputForm = (props) => {
             type="time"
             name="endHour"
             onChange={endTimeChangeHandler}
+            defaultValue={endTime}
             required
           />
         </div>
