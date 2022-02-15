@@ -43,11 +43,22 @@ const getDocsThisMonth = async () => {
     const results = await Input.find({
       month: date,
     });
-    console.log(results);
     return results;
   } catch (err) {
     return err.message;
   }
 };
 
-module.exports = { getDocsByMonth, getDocsThisMonth, saveInput };
+const deleteOneInput = async (req, res) => {
+  const id = req.params.inputId
+  console.log(id)
+  try {
+    await Input.deleteOne({_id: id})
+    const list = await getDocsThisMonth()
+    res.status(200).send(list)
+  } catch (err) {
+    res.status(500).send(err.message)
+  }
+}
+
+module.exports = { getDocsByMonth, getDocsThisMonth, saveInput, deleteOneInput };

@@ -22,7 +22,7 @@
   align-items: center;
   text-align: center;
   flex-direction: column;
-  flex :1;
+  flex: 1;
 }
 
 .item-time h3 {
@@ -34,4 +34,11 @@
   flex-direction: column;
   justify-content: space-around;
   align-items: center;
+}
+
+.modal-actions {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 15px;
 }

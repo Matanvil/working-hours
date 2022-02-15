@@ -7,14 +7,26 @@ import "../style/loader.css";
 
 const InputList = (props) => {
   let list;
+  const [updatedList, setUpdatedList] = useState(list);
+
   useEffect(async () => {
     list = await getLatestDocs();
     setUpdatedList(list);
   }, [props.list]);
 
-  const [updatedList, setUpdatedList] = useState(list);
+  const handleUpdate = (update) => {
+    setUpdatedList(update);
+  };
 
   console.log(updatedList ? updatedList : "no list");
+
+  const dateOptions = {
+    year: "numeric",
+    month: "numeric",
+    day: "numeric",
+    hour: "2-digit",
+    minute: "2-digit",
+  };
 
   return (
     <div className="list-container">
@@ -22,9 +34,11 @@ const InputList = (props) => {
         {updatedList &&
           updatedList.map((item) => (
             <ListItem
-              startTime={new Date(item.start).toLocaleString("en-GB")}
-              endTime={new Date(item.end).toLocaleString("en-GB")}
+              startTime={new Date(item.start).toLocaleString("en-GB", dateOptions)}
+              update={handleUpdate}
+              endTime={new Date(item.end).toLocaleString("en-GB", dateOptions)}
               key={item._id}
+              id={item._id}
               totalTime={formatDuration(
                 Date.parse(item.end) - Date.parse(item.start)
               )}
